@@ -9,5 +9,5 @@ public class JustaquickquestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JustaquickquestApplication.class, args);
 	}
-
+lolololol
 }
