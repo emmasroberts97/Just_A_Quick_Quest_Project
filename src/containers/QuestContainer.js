@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
+import TreasureContainer from './TreasureContainer';
+import QuestionMasterContainer from './QuestionMasterContainer';
+import RoomContainer from './RoomContainer';
 
-class QuestContainer extends Component{ 
+class QuestContainer extends Component{
     constructor(props) {
         super(props);
         this.state={
-            questions: [],
-            rooms: [],
-            questionMasters: [],
-            treasure: []
-        
-
+            questions: []
         }
     }
 
@@ -20,32 +18,18 @@ class QuestContainer extends Component{
             this.setState({questions: data.results});
 
         })
-
-        const request1 = new Request();
-        request1.get('/api/rooms')
-            .then((data) => {
-                this.setState({ rooms: data })
-            })
-
-        const request2 = new Request();
-        request2.get('/api/treasures')
-            .then((data) => {
-                this.setState({ treasure: data })
-            })
-
-        const request3 = new Request();
-        request3.get('/api/questionmasters')
-            .then((data) => {
-                this.setState({ questionMasters: data })
-            })
     }
 
     render(){
         return(
+            <div>
             <h1>hello</h1>
+            <TreasureContainer />
+            <QuestionMasterContainer />
+            <RoomContainer />
+            </div>
         )
     }
 }
 
 export default QuestContainer;
-
