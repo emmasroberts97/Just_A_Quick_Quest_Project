@@ -2,19 +2,30 @@ package com.codeclan.example.justaquickquest.models;
 
 public enum Treasure {
 
-    FLOUR("URL"),
-    SUGAR("URL"),
-    EGGS("URL"),
-    BUTTER("URL"),
-    CANDLE("URL");
+    FLOUR("flour"),
+    SUGAR("sugar"),
+    EGGS("eggs"),
+    BUTTER("butter"),
+    CANDLE("candle");
 
-    private final String url;
+    private String ingredient;
 
-    Treasure(String url){
-        this.url = url;
+    private Treasure(String ingredient){
+        this.ingredient = ingredient;
     }
-    public String getUrl(){
-        return this.url;
+
+    public String getIngredient(){
+        return this.ingredient;
+    }
+
+    public void setIngredient(String ingredient){
+        this.ingredient = ingredient;
+    }
+
+    @Override
+    public String toString ()
+    {
+        return this.ingredient;
     }
 
 }
