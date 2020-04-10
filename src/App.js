@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {Component} from 'react';
+import QuestContainer from './containers/QuestContainer';
 import './App.css';
 
-function App() {
-  return (
-
-  );
+class App extends Component {
+  render(){
+    return(
+      <QuestContainer/>
+    );
+  } 
+  
 }
 
 export default App;
