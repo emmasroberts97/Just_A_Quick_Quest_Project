@@ -21,6 +21,7 @@ public class Character {
     @Column(name="life")
     private int life;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="items")
     private ArrayList<Treasure> itemsCollected;
 
