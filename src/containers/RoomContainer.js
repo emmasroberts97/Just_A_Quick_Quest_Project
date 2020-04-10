@@ -10,11 +10,11 @@ class RoomContainer extends Component{
     }
 
     componentDidMount(){
-        const request = new Request();
-        request.get('/api/rooms')
-            .then((data) => {
-                this.setState({ rooms: data })
-            })
+      const request = new Request();
+      request.get('/api/rooms')
+      .then((data) => {
+        this.setState({ rooms: data })
+      })
     }
 
     render(){

@@ -11,11 +11,11 @@ class QuestionMasterContainer extends Component{
     }
 
     componentDidMount(){
-        const request = new Request();
-        request.get('/api/questionmasters')
-            .then((data) => {
-                this.setState({ questionMasters: data })
-            })
+      const request = new Request();
+      request.get('/api/questionmasters')
+      .then((data) => {
+        this.setState({ questionMasters: data })
+      })
     }
 
     render(){
