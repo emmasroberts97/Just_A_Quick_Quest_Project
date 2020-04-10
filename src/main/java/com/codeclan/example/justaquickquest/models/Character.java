@@ -22,7 +22,7 @@ public class Character {
     private int life;
 
     @Column(name="items")
-    private List<Treasure> itemsCollected;
+    private ArrayList<Treasure> itemsCollected;
 
     @Column(name="start_time")
     private String startTime;
@@ -50,7 +50,7 @@ public class Character {
 
     public int getLife() { return life; }
 
-    public List<Treasure> getItemsCollected() { return itemsCollected; }
+    public ArrayList<Treasure> getItemsCollected() { return itemsCollected; }
 
     public String getStartTime() { return startTime; }
 

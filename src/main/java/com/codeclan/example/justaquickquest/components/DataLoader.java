@@ -4,8 +4,10 @@ import com.codeclan.example.justaquickquest.controllers.RoomController;
 import com.codeclan.example.justaquickquest.models.Character;
 import com.codeclan.example.justaquickquest.models.QuestionMaster;
 import com.codeclan.example.justaquickquest.models.Room;
+import com.codeclan.example.justaquickquest.models.Treasure;
 import com.codeclan.example.justaquickquest.repositories.QuestionMasterRespository;
 import com.codeclan.example.justaquickquest.repositories.RoomRepository;
+import com.codeclan.example.justaquickquest.repositories.TreasureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -19,6 +21,8 @@ public class DataLoader implements ApplicationRunner {
     QuestionMasterRespository questionMasterRespository;
     @Autowired
     RoomRepository roomRepository;
+    @Autowired
+    TreasureRepository treasureRepository;
 
     public DataLoader(){}
 
@@ -35,6 +39,17 @@ public class DataLoader implements ApplicationRunner {
         roomRepository.save(anotherPlanet);
         Room pirateShip=new Room("An old pirate ship","you can smell the sea air as you find yourself walking the plank! A voice bellows from behind you. Maybe you still have a chance","Science:Computers");
         roomRepository.save(pirateShip);
+        Treasure flour = new Treasure("Flour","URL");
+        treasureRepository.save(flour);
+        Treasure butter = new Treasure("Butter","URL");
+        treasureRepository.save(butter);
+        Treasure candle = new Treasure("Candle","URL");
+        treasureRepository.save(candle);
+        Treasure eggs = new Treasure("Eggs", "URL");
+        treasureRepository.save(eggs);
+        Treasure sugar = new Treasure("Sugar","URL");
+        treasureRepository.save(sugar);
+
     }
 
 }

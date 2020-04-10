@@ -38,14 +38,14 @@ class JustaquickquestApplicationTests {
 		characterRepository.save(character);
 	}
 
-	@Test
-	public void canAddItem(){
-		Character character =new Character("Rob","Monday");
-		characterRepository.save(character);
-		character.addItem(Treasure.CANDLE);
-		assertEquals(1,character.getItemsCollected().size());
+//	@Test
+//	public void canAddItem(){
+//		Character character =new Character("Rob","Monday");
+//		characterRepository.save(character);
+//		character.addItem(Treasure.CANDLE);
+//		assertEquals(1,character.getItemsCollected().size());
 
-	}
+//	}
 
 	@Test
 	public void createRoom(){
