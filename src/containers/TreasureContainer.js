@@ -11,10 +11,10 @@ class TreasureContainer extends Component{
 
     componentDidMount(){
       const request = new Request();
-        request.get('/api/treasures')
-            .then((data) => {
-                this.setState({ treasure: data })
-            })
+      request.get('/api/treasures')
+      .then((data) => {
+        this.setState({ treasure: data })
+      })
     }
 
     render(){
