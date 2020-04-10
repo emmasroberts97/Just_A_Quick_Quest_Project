@@ -21,9 +21,8 @@ public class Character {
     @Column(name="life")
     private int life;
 
-    @Enumerated(EnumType.STRING)
     @Column(name="items")
-    private ArrayList<Treasure> itemsCollected;
+    private List<Treasure> itemsCollected;
 
     @Column(name="start_time")
     private String startTime;
@@ -51,7 +50,7 @@ public class Character {
 
     public int getLife() { return life; }
 
-    public ArrayList<Treasure> getItemsCollected() { return itemsCollected; }
+    public List<Treasure> getItemsCollected() { return itemsCollected; }
 
     public String getStartTime() { return startTime; }
 
