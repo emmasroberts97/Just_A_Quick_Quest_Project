@@ -39,7 +39,7 @@ public class QuestionMasterController {
         return new ResponseEntity<>(questionMaster, HttpStatus.OK);
     }
 
-    @DeleteMapping(value="/{id")
+    @DeleteMapping(value="/{id}")
     public ResponseEntity<QuestionMaster> deleteQuestionMaster(@PathVariable Long id){
         QuestionMaster found = questionMasterRespository.getOne(id);
         questionMasterRespository.delete(found);

@@ -39,7 +39,7 @@ public class CharacterController {
         return new ResponseEntity<>(character, HttpStatus.OK);
     }
 
-    @DeleteMapping(value="/{id")
+    @DeleteMapping(value="/{id}")
     public ResponseEntity<Character> deleteCharacter(@PathVariable Long id){
         Character found = characterRepository.getOne(id);
         characterRepository.delete(found);

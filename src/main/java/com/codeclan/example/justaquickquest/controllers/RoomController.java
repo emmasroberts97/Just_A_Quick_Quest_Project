@@ -38,7 +38,7 @@ public class RoomController {
         return new ResponseEntity<>(room, HttpStatus.OK);
     }
 
-    @DeleteMapping(value="/{id")
+    @DeleteMapping(value="/{id}")
     public ResponseEntity<Room> deleteRoom(@PathVariable Long id){
         Room found = roomRepository.getOne(id);
         roomRepository.delete(found);
