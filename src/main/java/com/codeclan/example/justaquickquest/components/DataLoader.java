@@ -32,13 +32,25 @@ public class DataLoader implements ApplicationRunner {
         QuestionMaster peterPython = new QuestionMaster("Peter Python", "Nicccccee to ssssssssee you", "img-url", "thatsssssss the bessssssst anssssswer","you are wrong, I bite you now");
         questionMasterRespository.save(peterPython);
         QuestionMaster cSharpSteve = new QuestionMaster("C Sharp Steve", "C is my father's name, you can call me Steve","img-url","That was C for correct!", "I'm afraid we don't C eye to eye on this one, you lose!");
-        questionMasterRespository.save((cSharpSteve));
+        questionMasterRespository.save(cSharpSteve);
+        QuestionMaster javaTheHut = new QuestionMaster("Java The Hut", "definitely not infringing copyright","javaTheHut","I'll have a slice of that! Correct!", "That answer was worse than a reheated slice for breakfast, you fail!");
+        questionMasterRespository.save(javaTheHut);
+        QuestionMaster pascAlan = new QuestionMaster("Pasc Alan","A Ha!","pascalan","Kiss My Face! Correct","You should be ashamed of yourself. Wrong");
+        questionMasterRespository.save(pascAlan);
+        QuestionMaster howardThomasMartinLuthor = new QuestionMaster("Howard Thomas Martin Luthor","come browse with me","http","You should be a moderator for Stack Overflow. Well done!","You are weakest hyperlink! Goodbye.");
+        questionMasterRespository.save(howardThomasMartinLuthor);
+        QuestionMaster nial = new QuestionMaster("Nial","Greetings Traveller","nial","Yous are all doing so well","Oh crumbs!");
+        questionMasterRespository.save(nial);
+
+
         Room oldCastle = new Room("The spooky old castle","you get to the top of the hill and there is a castle. It looks spooky, so you go inside. You find someone in the living room. They start to speak....","Sports" );
         roomRepository.save(oldCastle);
         Room anotherPlanet= new Room("Another Planet!?!?!?", "you open your eyes and look up, the stars look strange and you can see 2 moons. You are on another planet!","Animals");
         roomRepository.save(anotherPlanet);
         Room pirateShip=new Room("An old pirate ship","you can smell the sea air as you find yourself walking the plank! A voice bellows from behind you. Maybe you still have a chance","Science:Computers");
         roomRepository.save(pirateShip);
+        Room creepyBasement= new Room("A creepy, dark, dank basement","You start descending a slippery, rickety, staircase. When you reach the bottom, all you can see is a single lit candle on a table. Then from behind you, you hear a voice..... ","general");
+
         Treasure flour = new Treasure("Flour","URL");
         treasureRepository.save(flour);
         Treasure butter = new Treasure("Butter","URL");
