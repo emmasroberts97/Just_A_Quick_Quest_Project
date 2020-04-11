@@ -19,17 +19,13 @@ class QuestContainer extends Component{
     }
 
     componentDidMount(){
-        fetch("https://opentdb.com/api.php?amount=10")
-        .then(res => res.json())
-        .then((data)=>{
-            this.setState({questions: data.results});
-            this.returnRandomQuestion()})
 
         const request1 = new Request();
         request1.get('/api/rooms')
             .then((data) => {
                 this.setState({ rooms: data })
-                this.returnRandomRoom()})
+                this.returnRandomRoom()
+                this.getQuestions()})
 
         const request2 = new Request();
         request2.get('/api/questionmasters')
@@ -62,6 +58,72 @@ class QuestContainer extends Component{
     returnRandomQuestion(){
         const randomQuestion = this.state.questions[Math.floor(Math.random()*this.state.questions.length)];
         this.setState({selectedQuestion: randomQuestion});
+    }
+
+    getQuestions(){
+        if(this.state.selectedRoom.category === "Entertainment:Film"){
+            fetch("https://opentdb.com/api.php?amount=1&category=11&type=multiple")
+                .then(res => res.json())
+                .then((data)=>{
+                    this.setState({questions: data.results});
+                    this.returnRandomQuestion()})
+        }
+        if(this.state.selectedRoom.category === "Mythology"){
+            fetch("https://opentdb.com/api.php?amount=1&category=20&type=multiple")
+                .then(res => res.json())
+                .then((data)=>{
+                    this.setState({questions: data.results});
+                    this.returnRandomQuestion()})
+        }
+        if(this.state.selectedRoom.category === "Entertainment:Comics"){
+            fetch("https://opentdb.com/api.php?amount=1&category=29&type=multiple")
+                .then(res => res.json())
+                .then((data)=>{
+                    this.setState({questions: data.results});
+                    this.returnRandomQuestion()})
+        }
+        if(this.state.selectedRoom.category === "Science:Computers"){
+            fetch("https://opentdb.com/api.php?amount=1&category=18&type=multiple")
+                .then(res => res.json())
+                .then((data)=>{
+                    this.setState({questions: data.results});
+                    this.returnRandomQuestion()})
+        }
+        if(this.state.selectedRoom.category === "Celebrities"){
+            fetch("https://opentdb.com/api.php?amount=1&category=26&type=multiple")
+                .then(res => res.json())
+                .then((data)=>{
+                    this.setState({questions: data.results});
+                    this.returnRandomQuestion()})
+        }
+        if(this.state.selectedRoom.category === "Sports"){
+            fetch("https://opentdb.com/api.php?amount=1&category=21&type=multiple")
+                .then(res => res.json())
+                .then((data)=>{
+                    this.setState({questions: data.results});
+                    this.returnRandomQuestion()})
+        }
+        if(this.state.selectedRoom.category === "Animals"){
+            fetch("https://opentdb.com/api.php?amount=1&category=27&type=multiple")
+                .then(res => res.json())
+                .then((data)=>{
+                    this.setState({questions: data.results});
+                    this.returnRandomQuestion()})
+        }
+        if(this.state.selectedRoom.category === "General"){
+            fetch("https://opentdb.com/api.php?amount=1&category=9&type=multiple")
+                .then(res => res.json())
+                .then((data)=>{
+                    this.setState({questions: data.results});
+                    this.returnRandomQuestion()})
+        }
+        if(this.state.selectedRoom.category === "Science:Gadgets"){
+            fetch("https://opentdb.com/api.php?amount=1&category=30&type=multiple")
+                .then(res => res.json())
+                .then((data)=>{
+                    this.setState({questions: data.results});
+                    this.returnRandomQuestion()})
+        }
     }
 
     render(){
