@@ -49,7 +49,14 @@ public class DataLoader implements ApplicationRunner {
         roomRepository.save(anotherPlanet);
         Room pirateShip=new Room("An old pirate ship","you can smell the sea air as you find yourself walking the plank! A voice bellows from behind you. Maybe you still have a chance","Science:Computers");
         roomRepository.save(pirateShip);
-        Room creepyBasement= new Room("A creepy, dark, dank basement","You start descending a slippery, rickety, staircase. When you reach the bottom, all you can see is a single lit candle on a table. Then from behind you, you hear a voice..... ","general");
+        Room creepyBasement= new Room("A creepy, dark, dank basement","you start descending a slippery, rickety, staircase. When you reach the bottom, all you can see is a single lit candle on a table. Then from behind you, you hear a voice..... ","general");
+        roomRepository.save(creepyBasement);
+        Room cowboySaloon= new Room("an old timey western saloon","as you walk through the saloon doors you hear ragtime piano music mixed with heated conversations about card game and cattle rustling. As you scan your eyes around the room you notice someone sat at a table in the corner who beckons you over.....","Celebrities");
+        roomRepository.save(cowboySaloon);
+        Room corporateOffice = new Room("a modern, open plan corporate office","you swipe a keycard and the door swings open to reveal a busy office filled with people in jazzy shirts, because today is Friday. You walk over to your desk and notice a request from someone for a video chat. You answer the call.....","Mythology");
+        roomRepository.save(corporateOffice);
+        Room underTheSea= new Room("somewhere under the sea!","");
+        roomRepository.save(underTheSea)
 
         Treasure flour = new Treasure("Flour","URL");
         treasureRepository.save(flour);
