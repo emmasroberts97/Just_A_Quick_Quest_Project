@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import Request from "../helpers/requests";
 import QuestionComponent from "../components/QuestionComponent";
+import QMComponent from "../components/QMComponent";
+import TreasureComponent from "../components/TreasureComponent";
+
 
 class QuestContainer extends Component{
     constructor(props) {
@@ -136,6 +139,8 @@ class QuestContainer extends Component{
             <div>
             <h1>hello</h1>
                 <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
+                <QMComponent selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
+                <TreasureComponent treasure={this.state.selectedTreasure}/>
             </div>
         )
     }

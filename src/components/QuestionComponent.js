@@ -35,6 +35,7 @@ class QuestionComponent extends Component {
         this.props.getResult(event);
     }
 
+
     render(){
         const newArray = this.getValues();
         newArray.push(this.props.question.correct_answer);
