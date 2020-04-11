@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import Request from "../helpers/requests";
+import QuestionComponent from "../components/QuestionComponent";
 
 class QuestContainer extends Component{
     constructor(props) {
         super(props);
         this.state={
-            questions: [],
+            question: [],
             rooms: [],
             questionMasters: [],
             treasure: [],
@@ -13,13 +14,13 @@ class QuestContainer extends Component{
             selectedRoom: "",
             selectedQuestionMaster: "",
             selectedTreasure: "",
-            selectedQuestion: "",
             selectedDifficulty: ""
         }
+
+        this.logResult = this.logResult.bind(this);
     }
 
     componentDidMount(){
-
         const request1 = new Request();
         request1.get('/api/rooms')
             .then((data) => {
@@ -55,81 +56,86 @@ class QuestContainer extends Component{
         this.setState({selectedTreasure: randomTreasure});
     }
 
-    returnRandomQuestion(){
-        const randomQuestion = this.state.questions[Math.floor(Math.random()*this.state.questions.length)];
-        this.setState({selectedQuestion: randomQuestion});
-    }
-
     getQuestions(){
         if(this.state.selectedRoom.category === "Entertainment:Film"){
             fetch("https://opentdb.com/api.php?amount=1&category=11&type=multiple")
                 .then(res => res.json())
                 .then((data)=>{
-                    this.setState({questions: data.results});
-                    this.returnRandomQuestion()})
+                    this.setState({question: data.results[0]});
+                    })
         }
         if(this.state.selectedRoom.category === "Mythology"){
             fetch("https://opentdb.com/api.php?amount=1&category=20&type=multiple")
                 .then(res => res.json())
                 .then((data)=>{
-                    this.setState({questions: data.results});
-                    this.returnRandomQuestion()})
+                    this.setState({question: data.results[0]});
+                })
         }
         if(this.state.selectedRoom.category === "Entertainment:Comics"){
             fetch("https://opentdb.com/api.php?amount=1&category=29&type=multiple")
                 .then(res => res.json())
                 .then((data)=>{
-                    this.setState({questions: data.results});
-                    this.returnRandomQuestion()})
+                    this.setState({question: data.results[0]});
+                })
         }
         if(this.state.selectedRoom.category === "Science:Computers"){
             fetch("https://opentdb.com/api.php?amount=1&category=18&type=multiple")
                 .then(res => res.json())
                 .then((data)=>{
-                    this.setState({questions: data.results});
-                    this.returnRandomQuestion()})
+                    this.setState({question: data.results[0]});
+                })
         }
         if(this.state.selectedRoom.category === "Celebrities"){
             fetch("https://opentdb.com/api.php?amount=1&category=26&type=multiple")
                 .then(res => res.json())
                 .then((data)=>{
-                    this.setState({questions: data.results});
-                    this.returnRandomQuestion()})
+                    this.setState({question: data.results[0]});
+                })
         }
         if(this.state.selectedRoom.category === "Sports"){
             fetch("https://opentdb.com/api.php?amount=1&category=21&type=multiple")
                 .then(res => res.json())
                 .then((data)=>{
-                    this.setState({questions: data.results});
-                    this.returnRandomQuestion()})
+                    this.setState({question: data.results[0]});
+                })
         }
         if(this.state.selectedRoom.category === "Animals"){
             fetch("https://opentdb.com/api.php?amount=1&category=27&type=multiple")
                 .then(res => res.json())
                 .then((data)=>{
-                    this.setState({questions: data.results});
-                    this.returnRandomQuestion()})
+                    this.setState({question: data.results[0]});
+                })
         }
         if(this.state.selectedRoom.category === "General"){
             fetch("https://opentdb.com/api.php?amount=1&category=9&type=multiple")
                 .then(res => res.json())
                 .then((data)=>{
-                    this.setState({questions: data.results});
-                    this.returnRandomQuestion()})
+                    this.setState({question: data.results[0]});
+                })
         }
         if(this.state.selectedRoom.category === "Science:Gadgets"){
             fetch("https://opentdb.com/api.php?amount=1&category=30&type=multiple")
                 .then(res => res.json())
                 .then((data)=>{
-                    this.setState({questions: data.results});
-                    this.returnRandomQuestion()})
+                    this.setState({question: data.results[0]});
+                })
         }
+    }
+
+    logResult(event){
+        if(event.target.value === this.state.question.correct_answer){
+            this.setState({result: "right"});
+        } else {
+            this.setState({result: "wrong"});
+        }
+
     }
 
     render(){
         return(
             <div>
             <h1>hello</h1>
+                <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
             </div>
         )
     }
