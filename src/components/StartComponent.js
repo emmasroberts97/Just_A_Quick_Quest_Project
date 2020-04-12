@@ -8,10 +8,9 @@ class StartComponent extends Component {
         this.state = {
             character: {
                 name: "",
-                lives: 5,
+                life: 5,
                 startTime: "",
-                endTime: "",
-                itemCollected: []
+                endTime: ""
             }
         }
 

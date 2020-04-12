@@ -1,10 +1,14 @@
 import React from "react";
 
 const TreasureComponent = (props)=>{
-    return (
-        <div>
-            {props.treasure.ingredient}
-        </div>
-    )
+    if(props.treasure){
+        return (
+            <div>
+                {props.treasure.ingredient}
+            </div>
+        )
+    }
+    return null;
+
 }
 export default TreasureComponent;

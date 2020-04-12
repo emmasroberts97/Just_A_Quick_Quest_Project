@@ -23,7 +23,8 @@ class QuestContainer extends Component{
             hasStarted: false,
             hasFinished: false,
             character: null,
-            collectedItems: []
+            collectedItems: [],
+            savedCharacters: []
         }
 
         this.logResult = this.logResult.bind(this);
@@ -160,9 +161,9 @@ class QuestContainer extends Component{
             this.returnRandomTreasure();
         } else {
             this.setState({result: "wrong"});
-            let newLives = this.state.character.lives - 1;
+            let newLives = this.state.character.life - 1;
             let character = this.state.character;
-            character.lives = newLives;
+            character.life = newLives;
             this.setState({character: character});
         }
     }
@@ -173,7 +174,16 @@ class QuestContainer extends Component{
     }
 
     nextRoom(){
-        if(this.state.rooms.length != 0){
+        if(this.state.rooms.length === 0 || this.state.character.life === 0 || this.state.collectedItems.length === 5){
+            this.setState({hasFinished: true});
+
+            let character = this.state.character;
+            character.endTime = Date.now();
+            this.setState({character: character});
+            this.createCharacter();
+
+        }
+        if(this.state.rooms.length !== 0){
             // Remove Room
             let newRooms = this.state.rooms;
             let indexRoom = newRooms.indexOf(this.state.selectedRoom);
@@ -194,9 +204,6 @@ class QuestContainer extends Component{
             // Get Questions
             this.getQuestions();
         }
-        if(this.state.rooms.length === 0){
-            this.setState({hasFinished: true});
-        }
     }
 
         setCharacter(character){
@@ -204,24 +211,41 @@ class QuestContainer extends Component{
 
     }
 
+    createCharacter(){
+        const request = new Request();
+        request.post('/api/characters', this.state.character)
+            .then(() => this.getCharacters());
+
+    }
+
+    getCharacters(){
+        const request = new Request();
+        request.get('/api/characters')
+            .then((data) => {this.setState({ savedCharacters: data })
+            });
+    }
+
+
+
+
     render(){
         if(this.state.hasStarted === false && this.state.hasFinished === false){
             return (
-                <div>
+                <div className="startScreen">
                     <StartComponent startGame={this.startGame} setDifficulty={this.setDifficulty} setCharacter={this.setCharacter}/>
                 </div>
             )
         }
         if(this.state.hasFinished === true){
             return (
-                <div>
+                <div className="endScreen">
                     <h1> You are finished! </h1>
                 </div>
             )
         }
 
         return(
-            <div>
+            <div className="level">
             <h1>hello</h1>
                 <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom}/>
                 <QMComponent selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
