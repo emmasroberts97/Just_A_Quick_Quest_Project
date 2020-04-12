@@ -21,13 +21,16 @@ class QuestContainer extends Component{
             selectedTreasure: "",
             selectedDifficulty: "",
             hasStarted: false,
-            hasFinished: false
+            hasFinished: false,
+            character: null,
+            collectedItems: []
         }
 
         this.logResult = this.logResult.bind(this);
         this.startGame = this.startGame.bind(this);
         this.setDifficulty = this.setDifficulty.bind(this);
         this.nextRoom = this.nextRoom.bind(this);
+        this.setCharacter = this.setCharacter.bind(this);
     }
 
     componentDidMount(){
@@ -141,13 +144,27 @@ class QuestContainer extends Component{
         this.setState({selectedDifficulty: event.target.value});
     }
 
-    logResult(event){
-        if(event.target.value === this.state.question.correct_answer){
+    logResult(event) {
+        if (event.target.value === this.state.question.correct_answer) {
             this.setState({result: "right"});
+
+            let collected = this.state.collectedItems;
+            collected.push(this.state.selectedTreasure);
+            this.setState({collectedItems: collected});
+
+            let newTreasure = this.state.treasure;
+            let indexTreasure = newTreasure.indexOf(this.state.selectedTreasure);
+            newTreasure.splice(indexTreasure,1);
+            this.setState({treasure: newTreasure});
+
+            this.returnRandomTreasure();
         } else {
             this.setState({result: "wrong"});
+            let newLives = this.state.character.lives - 1;
+            let character = this.state.character;
+            character.lives = newLives;
+            this.setState({character: character});
         }
-
     }
 
     startGame(){
@@ -182,11 +199,16 @@ class QuestContainer extends Component{
         }
     }
 
+        setCharacter(character){
+        this.setState({character: character})
+
+    }
+
     render(){
         if(this.state.hasStarted === false && this.state.hasFinished === false){
             return (
                 <div>
-                    <StartComponent startGame={this.startGame} setDifficulty={this.setDifficulty}/>
+                    <StartComponent startGame={this.startGame} setDifficulty={this.setDifficulty} setCharacter={this.setCharacter}/>
                 </div>
             )
         }
