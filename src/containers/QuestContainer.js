@@ -4,6 +4,7 @@ import QuestionComponent from "../components/QuestionComponent";
 import QMComponent from "../components/QMComponent";
 import TreasureComponent from "../components/TreasureComponent";
 import StartComponent from "../components/StartComponent";
+import RoomComponent from "../components/RoomComponent";
 
 
 class QuestContainer extends Component{
@@ -19,12 +20,14 @@ class QuestContainer extends Component{
             selectedQuestionMaster: "",
             selectedTreasure: "",
             selectedDifficulty: "",
-            hasStarted: false
+            hasStarted: false,
+            hasFinished: false
         }
 
         this.logResult = this.logResult.bind(this);
         this.startGame = this.startGame.bind(this);
         this.setDifficulty = this.setDifficulty.bind(this);
+        this.nextRoom = this.nextRoom.bind(this);
     }
 
     componentDidMount(){
@@ -32,20 +35,19 @@ class QuestContainer extends Component{
         request1.get('/api/rooms')
             .then((data) => {
                 this.setState({ rooms: data })
-                this.returnRandomRoom()
-                })
+                this.returnRandomRoom()});
 
         const request2 = new Request();
         request2.get('/api/questionmasters')
             .then((data) => {
                 this.setState({ questionMasters: data })
-                this.returnRandomQuestionMaster()})
+                this.returnRandomQuestionMaster()});
 
         const request3 = new Request();
         request3.get('/api/treasures')
             .then((data) => {
                 this.setState({ treasure: data })
-                this.returnRandomTreasure()})
+                this.returnRandomTreasure()});
     }
 
     returnRandomRoom(){
@@ -136,7 +138,7 @@ class QuestContainer extends Component{
         if(event.target.value === "any"){
             return null;
         }
-        this.setState({selectedDifficulty: event.target.value})
+        this.setState({selectedDifficulty: event.target.value});
     }
 
     logResult(event){
@@ -153,19 +155,55 @@ class QuestContainer extends Component{
         this.getQuestions();
     }
 
+    nextRoom(){
+        if(this.state.rooms.length != 0){
+            // Remove Room
+            let newRooms = this.state.rooms;
+            let indexRoom = newRooms.indexOf(this.state.selectedRoom);
+            newRooms.splice(indexRoom, 1);
+            this.setState({rooms: newRooms});
+            this.returnRandomRoom();
+
+            // Remove QM
+            let newQMs = this.state.questionMasters;
+            let indexQM = newQMs.indexOf(this.state.selectedQuestionMaster);
+            newQMs.splice(indexQM, 1);
+            this.setState({questionMasters: newQMs});
+            this.returnRandomQuestionMaster();
+
+            // Set Result
+            this.setState({result: ""});
+
+            // Get Questions
+            this.getQuestions();
+        }
+        if(this.state.rooms.length === 0){
+            this.setState({hasFinished: true});
+        }
+    }
+
     render(){
-        if(this.state.hasStarted === false){
+        if(this.state.hasStarted === false && this.state.hasFinished === false){
             return (
                 <div>
                     <StartComponent startGame={this.startGame} setDifficulty={this.setDifficulty}/>
                 </div>
             )
         }
+        if(this.state.hasFinished === true){
+            return (
+                <div>
+                    <h1> You are finished! </h1>
+                </div>
+            )
+        }
+
         return(
             <div>
             <h1>hello</h1>
-                <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
+                <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom}/>
                 <QMComponent selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
+                <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
                 <TreasureComponent treasure={this.state.selectedTreasure}/>
             </div>
         )
