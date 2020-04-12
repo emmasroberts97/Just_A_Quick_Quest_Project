@@ -21,8 +21,8 @@ public class Character {
     @Column(name="life")
     private int life;
 
-    @Column(name="items")
-    private ArrayList<Treasure> itemsCollected;
+//    @Column(name="items")
+//    private ArrayList<Treasure> itemsCollected;
 
     @Column(name="start_time")
     private String startTime;
@@ -33,7 +33,7 @@ public class Character {
     public Character(String name, String startTime) {
         this.name = name;
         this.life = 5;
-        this.itemsCollected =new ArrayList<>();
+//        this.itemsCollected =new ArrayList<>();
         this.startTime = startTime;
         this.endTime = "";
     }
@@ -50,7 +50,7 @@ public class Character {
 
     public int getLife() { return life; }
 
-    public ArrayList<Treasure> getItemsCollected() { return itemsCollected; }
+//    public ArrayList<Treasure> getItemsCollected() { return itemsCollected; }
 
     public String getStartTime() { return startTime; }
 
@@ -70,9 +70,9 @@ public class Character {
         this.life = life;
     }
 
-    public void setItemsCollected(ArrayList<Treasure> itemsCollected) {
-        this.itemsCollected = itemsCollected;
-    }
+//    public void setItemsCollected(ArrayList<Treasure> itemsCollected) {
+//        this.itemsCollected = itemsCollected;
+//    }
 
     public void setStartTime(String startTime) {
         this.startTime = startTime;
@@ -82,7 +82,7 @@ public class Character {
         this.endTime = endTime;
     }
 
-    public void addItem(Treasure treasure){
-        this.itemsCollected.add(treasure);
-    }
+//    public void addItem(Treasure treasure){
+//        this.itemsCollected.add(treasure);
+//    }
 }
