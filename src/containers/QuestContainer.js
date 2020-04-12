@@ -33,7 +33,7 @@ class QuestContainer extends Component{
             .then((data) => {
                 this.setState({ rooms: data })
                 this.returnRandomRoom()
-                this.getQuestions()})
+                })
 
         const request2 = new Request();
         request2.get('/api/questionmasters')
@@ -64,64 +64,67 @@ class QuestContainer extends Component{
     }
 
     getQuestions(){
+        let updatedString = this.state.selectedDifficulty;
+        updatedString = updatedString.replace(/['"]+/g, '');
+
         if(this.state.selectedRoom.category === "Entertainment:Film"){
-            fetch(`https://opentdb.com/api.php?amount=1&category=11&type=multiple&difficulty=${this.state.selectedDifficulty}`)
+            fetch(`https://opentdb.com/api.php?amount=1&category=11&type=multiple&difficulty=${updatedString}`)
                 .then(res => res.json())
                 .then((data)=>{
                     this.setState({question: data.results[0]});
                     })
         }
         if(this.state.selectedRoom.category === "Mythology"){
-            fetch(`https://opentdb.com/api.php?amount=1&category=20&type=multiple&difficulty=${this.state.selectedDifficulty}`)
+            fetch(`https://opentdb.com/api.php?amount=1&category=20&type=multiple&difficulty=${updatedString}`)
                 .then(res => res.json())
                 .then((data)=>{
                     this.setState({question: data.results[0]});
                 })
         }
         if(this.state.selectedRoom.category === "Entertainment:Comics"){
-            fetch(`https://opentdb.com/api.php?amount=1&category=29&type=multiple&difficulty=${this.state.selectedDifficulty}`)
+            fetch(`https://opentdb.com/api.php?amount=1&category=29&type=multiple&difficulty=${updatedString}`)
                 .then(res => res.json())
                 .then((data)=>{
                     this.setState({question: data.results[0]});
                 })
         }
         if(this.state.selectedRoom.category === "Science:Computers"){
-            fetch(`https://opentdb.com/api.php?amount=1&category=18&type=multiple&difficulty=${this.state.selectedDifficulty}`)
+            fetch(`https://opentdb.com/api.php?amount=1&category=18&type=multiple&difficulty=${updatedString}`)
                 .then(res => res.json())
                 .then((data)=>{
                     this.setState({question: data.results[0]});
                 })
         }
         if(this.state.selectedRoom.category === "Celebrities"){
-            fetch(`https://opentdb.com/api.php?amount=1&category=26&type=multiple&difficulty=${this.state.selectedDifficulty}`)
+            fetch(`https://opentdb.com/api.php?amount=1&category=26&type=multiple&difficulty=${updatedString}`)
                 .then(res => res.json())
                 .then((data)=>{
                     this.setState({question: data.results[0]});
                 })
         }
         if(this.state.selectedRoom.category === "Sports"){
-            fetch(`https://opentdb.com/api.php?amount=1&category=21&type=multiple&difficulty=${this.state.selectedDifficulty}`)
+            fetch(`https://opentdb.com/api.php?amount=1&category=21&type=multiple&difficulty=${updatedString}`)
                 .then(res => res.json())
                 .then((data)=>{
                     this.setState({question: data.results[0]});
                 })
         }
         if(this.state.selectedRoom.category === "Animals"){
-            fetch(`https://opentdb.com/api.php?amount=1&category=27&type=multiple&difficulty=${this.state.selectedDifficulty}`)
+            fetch(`https://opentdb.com/api.php?amount=1&category=27&type=multiple&difficulty=${updatedString}`)
                 .then(res => res.json())
                 .then((data)=>{
                     this.setState({question: data.results[0]});
                 })
         }
         if(this.state.selectedRoom.category === "general"){
-            fetch('https://opentdb.com/api.php?amount=1&category=9&type=multiple&difficulty=${this.state.selectedDifficulty}')
+            fetch(`https://opentdb.com/api.php?amount=1&category=9&type=multiple&difficulty=${updatedString}`)
                 .then(res => res.json())
                 .then((data)=>{
                     this.setState({question: data.results[0]});
                 })
         }
         if(this.state.selectedRoom.category === "Science:Gadgets"){
-            fetch(`https://opentdb.com/api.php?amount=1&category=30&type=multiple&difficulty=${this.state.selectedDifficulty}`)
+            fetch(`https://opentdb.com/api.php?amount=1&category=30&type=multiple&difficulty=${updatedString}`)
                 .then(res => res.json())
                 .then((data)=>{
                     this.setState({question: data.results[0]});
@@ -146,7 +149,8 @@ class QuestContainer extends Component{
     }
 
     startGame(){
-        this.setState({hasStarted: true})
+        this.setState({hasStarted: true});
+        this.getQuestions();
     }
 
     render(){
