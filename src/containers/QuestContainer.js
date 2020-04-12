@@ -5,6 +5,7 @@ import QMComponent from "../components/QMComponent";
 import TreasureComponent from "../components/TreasureComponent";
 import StartComponent from "../components/StartComponent";
 import RoomComponent from "../components/RoomComponent";
+import EndComponent from "../components/EndComponent";
 
 
 class QuestContainer extends Component{
@@ -239,7 +240,7 @@ class QuestContainer extends Component{
         if(this.state.hasFinished === true){
             return (
                 <div className="endScreen">
-                    <h1> You are finished! </h1>
+                    <EndComponent characters={this.state.savedCharacters}/>
                 </div>
             )
         }
