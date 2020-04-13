@@ -46,7 +46,7 @@ class StartComponent extends Component {
         return(
             <div className="startComponent">
                 <h1 className="line anim-typewriter">Welcome to One Quick Quest!</h1>
-                <img className="startImage" src="https://cdna.artstation.com/p/assets/images/images/011/294/942/large/bert-wouters-ld-f-2dae07-wouters-bert-02.jpg?1528841437" alt="start page" height="300px" width="500px" />
+                <img className="startImage" src="https://c4.wallpaperflare.com/wallpaper/489/137/187/landscape-castle-clouds-hills-wallpaper-preview.jpg" alt="start page" height="300px" width="500px" />
                 <form>
                     <p className="startText">Choose your Character's Name</p>
                 <input type="text" placeholder="Type your Name" name="name"

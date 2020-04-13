@@ -8,15 +8,16 @@ class EndComponent extends Component {
         };
     }
 
-
-
+    goBackToStart(){
+        window.location.reload(false);
+    }
 
     render() {
 
         // const characterNames = this.props.characters.map((character) => {
             const highscores = [];
         this.props.characters.forEach((character) => {
-            const score = (1000000-(character.endTime - character.startTime))*(character.life/2);
+            const score = Math.round((1000000-(character.endTime - character.startTime))*(character.life/2));
             const savedCharacter={
                 "name": character.name,
                 "highscore": score
@@ -24,21 +25,64 @@ class EndComponent extends Component {
             return highscores.push(savedCharacter);
         });
 
-
-
         highscores.sort((a, b) => {
             return a.highscore - b.highscore;
         });
 
         highscores.reverse();
 
-        let leaderboard = highscores.map((score, index)=>{
-            return <p key={index}>name:{score.name} score:{score.highscore}</p>
+        let leaderboard = highscores.map((score, index) => {
+            if(this.props.selectedCharacter){
+                if(score.name === this.props.selectedCharacter.name){
+                    return (
+                        <tr key={index}>
+                            <td><b>{score.name}</b></td>
+                            <td><b>{score.highscore}</b></td>
+                        </tr>
+                    )
+                }};
+
+                return (
+                    <tr key={index}>
+                        <td>{score.name}</td>
+                        <td>{score.highscore}</td>
+                    </tr>
+                )
         });
 
-        return(
-            <div>{leaderboard}</div>
-        )
+        if(this.props.score.length === 5){
+            return(
+                <div>
+                    <h2 className="endHeading">Well done! You saved the day!</h2>
+                    <button type="submit" onClick={this.goBackToStart}>Just One More Quick Quest</button>
+                    <table className="leaderboard">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {leaderboard}
+                        </tbody>
+
+                    </table>
+                </div>
+            )}
+
+        return (
+           <div>
+               <h2 className="endHeading">You did not bake the cake....better luck next time!</h2>
+               <button type="submit" onClick={this.goBackToStart}>Just One More Quick Quest</button>
+               <table className="leaderboard">
+                   <tr>
+                       <th>Name</th>
+                       <th>Score</th>
+                   </tr>
+                   {leaderboard}
+               </table>
+           </div>
+         )
     }
 }
 

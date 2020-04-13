@@ -240,7 +240,7 @@ class QuestContainer extends Component{
         if(this.state.hasFinished === true){
             return (
                 <div className="endScreen">
-                    <EndComponent characters={this.state.savedCharacters}/>
+                    <EndComponent characters={this.state.savedCharacters} selectedCharacter={this.state.character} score={this.state.collectedItems}/>
                 </div>
             )
         }
