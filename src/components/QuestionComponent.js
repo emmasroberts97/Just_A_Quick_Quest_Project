@@ -41,16 +41,35 @@ class QuestionComponent extends Component {
         newArray.push(this.props.question.correct_answer);
         this.shuffle(newArray);
 
-        if(!this.props.result){
+        if(this.props.question){
+
+        }
+
+
+        if(!this.props.result && this.props.question){
+            let answer1 = newArray[0];
+            // answer1 = answer1.replace(/[&#039;]+/g, "'")
+
+            let answer2 = newArray[1];
+            // answer2 = answer2.replace(/[&#039;]+/g, "'")
+
+            let answer3 = newArray[2];
+            // answer3 = answer3.replace(/[&#039;]+/g, "'")
+
+            let answer4 = newArray[3];
+            // answer4 = answer4.replace(/[&#039;]+/g, "'")
+
+            let question = this.props.question.question;
+            question = question.replace(/[&#039;]+/g, "'")
             return(
                 <div>
-                    <p>{this.props.question.question}</p>
+                    <p>{question}</p>
                     <div>
                         <ul id="list">
-                            <li><button type="submit" value={newArray[0]} onClick={this.getResult}>{newArray[0]} </button></li>
-                            <li><button type="submit" value={newArray[1]} onClick={this.getResult}>{newArray[1]} </button></li>
-                            <li><button type="submit" value={newArray[2]} onClick={this.getResult}>{newArray[2]} </button></li>
-                            <li><button type="submit" value={newArray[3]} onClick={this.getResult}>{newArray[3]} </button></li>
+                            <li><button type="submit" value={newArray[0]} onClick={this.getResult}>{answer1}</button></li>
+                            <li><button type="submit" value={newArray[1]} onClick={this.getResult}>{answer2}</button></li>
+                            <li><button type="submit" value={newArray[2]} onClick={this.getResult}>{answer3}</button></li>
+                            <li><button type="submit" value={newArray[3]} onClick={this.getResult}>{answer4}</button></li>
                         </ul>
                     </div>
 

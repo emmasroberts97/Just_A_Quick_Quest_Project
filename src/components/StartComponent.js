@@ -42,7 +42,7 @@ class StartComponent extends Component {
 
 
 
-    render() {
+    render(){
         return(
             <div>
                 <h1>Welcome to One Quick Quest!</h1>
