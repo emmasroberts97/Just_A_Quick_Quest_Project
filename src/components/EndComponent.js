@@ -32,8 +32,8 @@ class EndComponent extends Component {
 
         highscores.reverse();
 
-        let leaderboard = highscores.map((score)=>{
-            return <p>name:{score.name} score:{score.highscore}</p>
+        let leaderboard = highscores.map((score, index)=>{
+            return <p key={index}>name:{score.name} score:{score.highscore}</p>
         });
 
         return(
