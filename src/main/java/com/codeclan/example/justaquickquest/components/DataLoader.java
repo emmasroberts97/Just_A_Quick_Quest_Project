@@ -27,11 +27,11 @@ public class DataLoader implements ApplicationRunner {
     public DataLoader(){}
 
     public void run(ApplicationArguments args){
-        QuestionMaster rubyRabbit = new QuestionMaster("Ruby Rabbit","Ruby me this!","img-url","that was ruby right!","that was ruby wrong");
+        QuestionMaster rubyRabbit = new QuestionMaster("Ruby Rabbit","Ruby me this!","rubyRabbit","that was ruby right!","that was ruby wrong");
         questionMasterRespository.save(rubyRabbit);
-        QuestionMaster peterPython = new QuestionMaster("Peter Python", "Nicccccee to ssssssssee you", "img-url", "thatsssssss the bessssssst anssssswer","you are wrong, I bite you now");
+        QuestionMaster peterPython = new QuestionMaster("Peter Python", "Nicccccee to ssssssssee you", "peterPython", "thatsssssss the bessssssst anssssswer","you are wrong, I bite you now");
         questionMasterRespository.save(peterPython);
-        QuestionMaster cSharpSteve = new QuestionMaster("C Sharp Steve", "C is my father's name, you can call me Steve","img-url","That was C for correct!", "I'm afraid we don't C eye to eye on this one, you lose!");
+        QuestionMaster cSharpSteve = new QuestionMaster("C Sharp Steve", "C is my father's name, you can call me Steve","cSharpSteve","That was C for correct!", "I'm afraid we don't C eye to eye on this one, you lose!");
         questionMasterRespository.save(cSharpSteve);
         QuestionMaster javaTheHut = new QuestionMaster("Java The Hut", "definitely not infringing copyright","javaTheHut","I'll have a slice of that! Correct!", "That answer was worse than a reheated slice for breakfast, you fail!");
         questionMasterRespository.save(javaTheHut);
@@ -41,11 +41,11 @@ public class DataLoader implements ApplicationRunner {
         questionMasterRespository.save(howardThomasMartinLuthor);
         QuestionMaster nial = new QuestionMaster("Nial","Greetings Traveller","nial","Yous are all doing so well","Oh crumbs!");
         questionMasterRespository.save(nial);
-        QuestionMaster john = new QuestionMaster("John C++ Reilly","Danger was my middle name, now it's C++","img-url","that one ran with zero errors!","failed to compile!");
+        QuestionMaster john = new QuestionMaster("John C++ Reilly","Danger was my middle name, now it's C++","john","that one ran with zero errors!","failed to compile!");
         questionMasterRespository.save(john);
-        QuestionMaster sqlSquirrel = new QuestionMaster("SQL Squirrel","I store nuts in a relational database!","img-url","You sure got that request!","aww nuts!");
+        QuestionMaster sqlSquirrel = new QuestionMaster("SQL Squirrel","I store nuts in a relational database!","sqlSquirrel","You sure got that request!","aww nuts!");
         questionMasterRespository.save(sqlSquirrel);
-        QuestionMaster machineCodeMouse = new QuestionMaster("Machine Code Mouse","01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100 00100001","img-url","01100011 01101111 01110010 01110010 01100101 01100011 01110100 00100001","01110111 01110010 01101111 01101110 01100111 00100001");
+        QuestionMaster machineCodeMouse = new QuestionMaster("Machine Code Mouse","01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100 00100001","machineCodeMouse","01100011 01101111 01110010 01110010 01100101 01100011 01110100 00100001","01110111 01110010 01101111 01101110 01100111 00100001");
         questionMasterRespository.save(machineCodeMouse);
 
         Room oldCastle = new Room("The spooky old castle","you get to the top of the hill and there is a castle. It looks spooky, so you go inside. You find someone in the living room. They start to speak....","Sports" );
