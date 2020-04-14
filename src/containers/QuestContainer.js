@@ -25,7 +25,8 @@ class QuestContainer extends Component{
             hasFinished: false,
             character: null,
             collectedItems: [],
-            savedCharacters: []
+            savedCharacters: [],
+            hasEnteredRoom: false
         }
 
         this.logResult = this.logResult.bind(this);
@@ -33,6 +34,7 @@ class QuestContainer extends Component{
         this.setDifficulty = this.setDifficulty.bind(this);
         this.nextRoom = this.nextRoom.bind(this);
         this.setCharacter = this.setCharacter.bind(this);
+        this.enterRoom = this.enterRoom.bind(this);
     }
 
     componentDidMount(){
@@ -185,6 +187,7 @@ class QuestContainer extends Component{
 
         }
         if(this.state.rooms.length !== 0){
+            this.setState({hasEnteredRoom: false});
             // Remove Room
             let newRooms = this.state.rooms;
             let indexRoom = newRooms.indexOf(this.state.selectedRoom);
@@ -226,6 +229,10 @@ class QuestContainer extends Component{
             });
     }
 
+    enterRoom(){
+        this.setState({hasEnteredRoom: true});
+    }
+
 
 
 
@@ -245,15 +252,25 @@ class QuestContainer extends Component{
             )
         }
 
-        return(
-            <div className="level">
-            <h1>hello</h1>
-                <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom}/>
-                <QMComponent selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
-                <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
-                <TreasureComponent treasure={this.state.selectedTreasure}/>
-            </div>
-        )
+        if(this.state.hasEnteredRoom === false){
+            return(
+                <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom}/>
+            )
+        }
+
+        if(this.state.hasEnteredRoom === true){
+            return(
+                <div className="level">
+                    <h1>hello</h1>
+                    <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom}/>
+                    <QMComponent selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
+                    <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
+                    <TreasureComponent treasure={this.state.selectedTreasure}/>
+                </div>
+            )
+        }
+
+
     }
 }
 
