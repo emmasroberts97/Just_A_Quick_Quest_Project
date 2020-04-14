@@ -254,17 +254,17 @@ class QuestContainer extends Component{
 
         if(this.state.hasEnteredRoom === false){
             return(
-                <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom} lives={this.state.character.life}/>
+                <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom} lives={this.state.character.life} collectedItems={this.state.collectedItems}/>
             )
         }
 
         if(this.state.hasEnteredRoom === true){
             return(
                 <div className="level">
-                    <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom} lives={this.state.character.life}/>
                     <QMComponent selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
                     <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
                     <TreasureComponent treasure={this.state.selectedTreasure}/>
+                    <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom} lives={this.state.character.life} collectedItems={this.state.collectedItems}/>
                 </div>
             )
         }

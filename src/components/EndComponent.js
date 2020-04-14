@@ -54,7 +54,9 @@ class EndComponent extends Component {
             return(
                 <div>
                     <h2 className="endHeading">Well done! You saved the day!</h2>
+                    <img className="cake" src={process.env.PUBLIC_URL +"/images/treasure/Cake.png"} alt="cake" height="300px" width="300px"/>
                     <button type="submit" onClick={this.goBackToStart}>Just One More Quick Quest</button>
+                    <h2 className="endHeading">Leaderboard</h2>
                     <table className="leaderboard">
                         <thead>
                         <tr>

@@ -46,13 +46,16 @@ class StartComponent extends Component {
         return(
             <div className="startComponent">
                 <h1 className="line anim-typewriter">Welcome to One Quick Quest!</h1>
-                <img className="startImage" src="https://c4.wallpaperflare.com/wallpaper/489/137/187/landscape-castle-clouds-hills-wallpaper-preview.jpg" alt="start page" height="300px" width="500px" />
+                <div className="container">
+                    <img className="startImage" src="https://c4.wallpaperflare.com/wallpaper/489/137/187/landscape-castle-clouds-hills-wallpaper-preview.jpg" alt="start page" height="300px" width="500px" />
+                    <div className="centered"><p>It is your best friend's birthday and you have been given the task of baking a cake for the party. But what's this? An evil wizard has scattered the ingredients you need across the world. Oh no! Do you go to the party empty handed or do you have the time for <b>Just One Quick Quest!</b></p> </div>
+                </div>
                 <form>
-                    <p className="startText">Choose your Character's Name</p>
+                    <p className="startText"><b>Choose your Character's Name</b></p>
                 <input type="text" placeholder="Type your Name" name="name"
                        onChange={this.handleNewChange} value={this.state.character.name} />
                 </form>
-                <p className="startText">Select your Difficulty</p>
+                <p className="startText"><b>Select your Difficulty</b></p>
                 <select onChange={this.handleChange}>
                     <option value="any">Any</option>
                     <option value="easy">Easy</option>

@@ -67,6 +67,7 @@ input{
   margin-right: auto;
   width: 25%;
   margin-top: 20px;
+  font-family: 'Nova Cut', cursive;
 }
 input:focus {
   border: 3px solid #555;
@@ -86,6 +87,7 @@ select {
 
 button {
   background-color: darkmagenta;
+  font-family: 'Nova Cut', cursive;
   border: none;
   color: white;
   padding: 20px;
@@ -107,6 +109,32 @@ button:hover{
   display: flex;
   justify-content: center;
   color: darkmagenta;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 50%;
+  border-radius: 4px;
+}
+
+.centered p{
+  margin: 5%;
+  font-weight: bold;
+  color: black;
 }
 
 
@@ -140,6 +168,12 @@ table {
   display: flex;
   justify-content: center;
   color: darkmagenta;
+}
+
+.cake {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*Room Component */
@@ -179,6 +213,22 @@ h2.compassText {
   float:right;
   margin-right: 100px;
   position: relative;
+}
+
+div.lifecounter {
+  position: fixed;
+}
+
+.life {
+  position:fixed;
+  top: 39em;
+  left:0;
+}
+
+.treasure{
+  position: fixed;
+  top: 39em;
+  right:0;
 }
 
 /*QM Component*/

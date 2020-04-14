@@ -5,7 +5,8 @@ class RoomComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            img: ""
+            img: "",
+            lives: []
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleEnterRoom = this.handleEnterRoom.bind(this);
@@ -59,6 +60,10 @@ class RoomComponent extends Component {
 
     render(){
 
+        let collectedTreasure = this.props.collectedItems.map((treasure , index) => {
+            return <img src={process.env.PUBLIC_URL +"/images/treasure/" + treasure.ingredient + ".png"} alt={treasure.ingredient} height="75px" width="75px" key={index}/>
+        })
+
         if(this.props.result === "" && this.props.hasEnteredRoom === false){
             return(
                 <div>
@@ -69,6 +74,7 @@ class RoomComponent extends Component {
                 </div>
             )
         }
+
         if(this.props.result === "right" || this.props.result === "wrong"){
             return(
                 <div>
@@ -77,53 +83,92 @@ class RoomComponent extends Component {
                 </div>
             )
         }
+
         if(this.props.hasEnteredRoom === true){
             if(this.props.lives === 5){
                 return(
                     <div>
-                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                    <div className="lifecounter">
+                        <div className="life">
+                            <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                        </div>
+                    </div>
+                        <div className="treasure">
+                            {collectedTreasure}
+                        </div>
                     </div>
                 )
             }
             if(this.props.lives === 4){
                 return(
                     <div>
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                    <div className="lifecounter">
+                        <div className="life">
+                            <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                        </div>
                     </div>
+                        <div className="treasure">
+                            {collectedTreasure}
+                        </div>
+                    </div>
+
                 )
             }
             if(this.props.lives === 3){
                 return(
                     <div>
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                        <div className="lifecounter">
+                            <div className="life">
+                                <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                                <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                                <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            </div>
+                        </div>
+                        <div className="treasure">
+                            {collectedTreasure}
+                        </div>
                     </div>
+
                 )
             }
             if(this.props.lives === 2){
                 return(
                     <div>
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                        <div className="lifecounter">
+                            <div className="life">
+                                <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                                <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            </div>
+                        </div>
+                        <div className="treasure">
+                            {collectedTreasure}
+                        </div>
                     </div>
+
                 )
             }
             if(this.props.lives === 1){
                 return(
                     <div>
-                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                        <div className="lifecounter">
+                            <div className="life">
+                                <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" height="50px" width="50px"/>
+                            </div>
+                        </div>
+                        <div className="treasure">
+                            {collectedTreasure}
+                        </div>
                     </div>
+
                 )
             }
-
         }
     }
 }
