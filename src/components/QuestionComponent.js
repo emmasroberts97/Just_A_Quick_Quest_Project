@@ -47,31 +47,30 @@ class QuestionComponent extends Component {
 
         if(!this.props.result && this.props.question.question){
             let answer1 = newArray[0];
-            answer1 = answer1.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"');
+            answer1 = answer1.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
 
             let answer2 = newArray[1];
-            answer2 = answer2.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"');
+            answer2 = answer2.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
 
             let answer3 = newArray[2];
-            answer3 = answer3.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"');
+            answer3 = answer3.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
 
             let answer4 = newArray[3];
-            answer4 = answer4.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"');
+            answer4 = answer4.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
 
             let question = this.props.question.question;
-            question = question.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"');
+            question = question.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
             return(
                 <div>
-                    <p>{question}</p>
                     <div>
-                        <ul id="list">
+                        <ul id="list" className="answers">
+                            <p className="question">{question}</p>
                             <li><button type="submit" value={newArray[0]} onClick={this.getResult}>{answer1}</button></li>
                             <li><button type="submit" value={newArray[1]} onClick={this.getResult}>{answer2}</button></li>
                             <li><button type="submit" value={newArray[2]} onClick={this.getResult}>{answer3}</button></li>
                             <li><button type="submit" value={newArray[3]} onClick={this.getResult}>{answer4}</button></li>
                         </ul>
                     </div>
-
                 </div>
 
             )

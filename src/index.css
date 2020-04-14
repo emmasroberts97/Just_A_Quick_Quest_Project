@@ -10,14 +10,6 @@ code {
   font-family: 'Nova Cut', cursive;
 }
 
-footer{
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-  color: darkmagenta;
-}
-
 /*TypeWriter Animation*/
 
 .line {
@@ -175,6 +167,8 @@ table {
 button.compass {
   background: transparent;
   float: right;
+  margin-right: -250px;
+  padding-top: 50px;
 }
 
 button.compass:hover {
@@ -183,4 +177,32 @@ button.compass:hover {
 
 h2.compassText {
   float:right;
+  margin-right: 100px;
+  position: relative;
+}
+
+/*QM Component*/
+
+img.qmImage {
+  float: left;
+  align-content: center;
+}
+
+h2.qmHeading {
+  position: relative;
+  text-wrap: normal;
+}
+
+/*Question Component*/
+
+p.question{
+  float: right;
+  position: relative;
+}
+
+ul.answers {
+  float: right;
+  position: relative;
+  list-style-type: none;
+  margin-right: 100px;
 }

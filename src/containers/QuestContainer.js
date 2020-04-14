@@ -261,7 +261,6 @@ class QuestContainer extends Component{
         if(this.state.hasEnteredRoom === true){
             return(
                 <div className="level">
-                    <h1>hello</h1>
                     <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom}/>
                     <QMComponent selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
                     <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
