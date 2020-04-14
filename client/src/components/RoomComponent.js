@@ -69,7 +69,7 @@ class RoomComponent extends Component {
                 <div>
                     <h1 className="roomHeading">{this.props.selectedRoom.name}</h1>
                     <img src={this.state.img} alt={this.props.selectedRoom.name} height="300px" width="300px" className="roomImages" />
-                    <h2 className="roomDescription">{this.props.selectedRoom.description}</h2>
+                    <h3 className="roomDescription">{this.props.selectedRoom.description}</h3>
                     <button type="submit" onClick={this.handleEnterRoom}>Enter Room</button>
                 </div>
             )
