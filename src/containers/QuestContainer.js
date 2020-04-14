@@ -23,10 +23,10 @@ class QuestContainer extends Component{
             selectedDifficulty: "",
             hasStarted: false,
             hasFinished: false,
+            hasEnteredRoom: false,
             character: null,
             collectedItems: [],
-            savedCharacters: [],
-            hasEnteredRoom: false
+            savedCharacters: []
         }
 
         this.logResult = this.logResult.bind(this);
@@ -254,7 +254,7 @@ class QuestContainer extends Component{
 
         if(this.state.hasEnteredRoom === false){
             return(
-                <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom}/>
+                <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom}/>
             )
         }
 
@@ -262,7 +262,7 @@ class QuestContainer extends Component{
             return(
                 <div className="level">
                     <h1>hello</h1>
-                    <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom}/>
+                    <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom}/>
                     <QMComponent selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
                     <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
                     <TreasureComponent treasure={this.state.selectedTreasure}/>

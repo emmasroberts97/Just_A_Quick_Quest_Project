@@ -75,11 +75,16 @@ class EndComponent extends Component {
                <h2 className="endHeading">You did not bake the cake....better luck next time!</h2>
                <button type="submit" onClick={this.goBackToStart}>Just One More Quick Quest</button>
                <table className="leaderboard">
+                   <thead>
                    <tr>
                        <th>Name</th>
                        <th>Score</th>
                    </tr>
+                   </thead>
+                   <tbody>
                    {leaderboard}
+                   </tbody>
+
                </table>
            </div>
          )
