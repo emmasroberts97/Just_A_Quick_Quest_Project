@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Request from "../helpers/requests";
 import QuestionComponent from "../components/QuestionComponent";
 import QMComponent from "../components/QMComponent";
-import TreasureComponent from "../components/TreasureComponent";
+// import TreasureComponent from "../components/TreasureComponent";
 import StartComponent from "../components/StartComponent";
 import RoomComponent from "../components/RoomComponent";
 import EndComponent from "../components/EndComponent";
@@ -260,11 +260,11 @@ class QuestContainer extends Component{
 
         if(this.state.hasEnteredRoom === true){
             return(
-                <div className="level">
-                    <QMComponent selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
-                    <QuestionComponent question={this.state.question} getResult={this.logResult} result={this.state.result}/>
-                    <TreasureComponent treasure={this.state.selectedTreasure}/>
-                    <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom} lives={this.state.character.life} collectedItems={this.state.collectedItems}/>
+                <div className="container">
+                    <QMComponent className="col-4" selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
+                    <QuestionComponent className="col" question={this.state.question} getResult={this.logResult} result={this.state.result}/>
+                    {/*<TreasureComponent treasure={this.state.selectedTreasure}/>*/}
+                    <RoomComponent className="col" selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom} lives={this.state.character.life} collectedItems={this.state.collectedItems}/>
                 </div>
             )
         }

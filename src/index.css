@@ -50,7 +50,6 @@ code {
   }
 }
 
-
 /*Start Page*/
 
 .startImage {
@@ -109,9 +108,10 @@ button:hover{
   display: flex;
   justify-content: center;
   color: darkmagenta;
+  margin-top: 10px;
 }
 
-.container {
+.containerStart {
   position: relative;
   text-align: center;
   color: white;
@@ -137,8 +137,8 @@ button:hover{
   color: black;
 }
 
-
 /*End Page*/
+
 td, th {
   text-align: center;
 }
@@ -193,9 +193,12 @@ table {
 }
 
 .roomDescription{
-  display: flex;
-  justify-content: center;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
   color: darkmagenta;
+  width: 50%;
+  padding-top: 20px;
 }
 
 button.compass {
@@ -203,6 +206,7 @@ button.compass {
   float: right;
   margin-right: -250px;
   padding-top: 50px;
+  outline: none;
 }
 
 button.compass:hover {
@@ -213,6 +217,10 @@ h2.compassText {
   float:right;
   margin-right: 100px;
   position: relative;
+}
+
+.compassImages{
+  margin-top: -400px;
 }
 
 div.lifecounter {
@@ -234,13 +242,20 @@ div.lifecounter {
 /*QM Component*/
 
 img.qmImage {
-  float: left;
+  /*float: left;*/
   align-content: center;
+  margin-left: -50px;
 }
 
 h2.qmHeading {
-  position: relative;
+  /*position: relative;*/
   text-wrap: normal;
+  font-style: italic;
+  padding-left: -50px;
+}
+
+.width{
+  width: 50rem;
 }
 
 /*Question Component*/
@@ -248,11 +263,13 @@ h2.qmHeading {
 p.question{
   float: right;
   position: relative;
+  width: 100%;
 }
 
 ul.answers {
   float: right;
   position: relative;
   list-style-type: none;
-  margin-right: 100px;
+  /*margin-right: 100px;*/
+  margin-top: -400px;
 }

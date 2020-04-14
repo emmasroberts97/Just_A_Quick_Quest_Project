@@ -74,7 +74,7 @@ class EndComponent extends Component {
 
         return (
            <div>
-               <h2 className="endHeading">You did not bake the cake....better luck next time!</h2>
+               <h2 className="endHeading">Well done, your best friend now hates you. No cake for you!!</h2>
                <button type="submit" onClick={this.goBackToStart}>Just One More Quick Quest</button>
                <table className="leaderboard">
                    <thead>

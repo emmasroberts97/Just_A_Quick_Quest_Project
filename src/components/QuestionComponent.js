@@ -47,24 +47,24 @@ class QuestionComponent extends Component {
 
         if(!this.props.result && this.props.question.question){
             let answer1 = newArray[0];
-            answer1 = answer1.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
+            answer1 = answer1.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "").replace(/&iacute;/g, "í").replace(/&aring;/g, "å").replace(/&ouml;/g, "ö").replace(/&auml;/g, "ä");
 
             let answer2 = newArray[1];
-            answer2 = answer2.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
+            answer2 = answer2.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "").replace(/&iacute;/g, "í").replace(/&aring;/g, "å").replace(/&ouml;/g, "ö").replace(/&auml;/g, "ä");
 
             let answer3 = newArray[2];
-            answer3 = answer3.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
+            answer3 = answer3.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "").replace(/&iacute;/g, "í").replace(/&aring;/g, "å").replace(/&ouml;/g, "ö").replace(/&auml;/g, "ä");
 
             let answer4 = newArray[3];
-            answer4 = answer4.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
+            answer4 = answer4.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "").replace(/&iacute;/g, "í").replace(/&aring;/g, "å").replace(/&ouml;/g, "ö").replace(/&auml;/g, "ä");
 
             let question = this.props.question.question;
-            question = question.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "");
+            question = question.replace(/&#039;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/, "<").replace(/&gt;/, ">").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&amp;/g, "&").replace(/&ntilde;/g, "ñ").replace(/&prime;/g, "'").replace(/&Prime;/g, '"').replace(/&shy;/g, "").replace(/&iacute;/g, "í").replace(/&aring;/g, "å").replace(/&ouml;/g, "ö").replace(/&auml;/g, "ä");
             return(
                 <div>
                     <div>
-                        <ul id="list" className="answers">
-                            <p className="question">{question}</p>
+                        <ul id="list" className="answers width">
+                            <h3 className="question">{question}</h3>
                             <li><button type="submit" value={newArray[0]} onClick={this.getResult}>{answer1}</button></li>
                             <li><button type="submit" value={newArray[1]} onClick={this.getResult}>{answer2}</button></li>
                             <li><button type="submit" value={newArray[2]} onClick={this.getResult}>{answer3}</button></li>

@@ -46,7 +46,7 @@ class StartComponent extends Component {
         return(
             <div className="startComponent">
                 <h1 className="line anim-typewriter">Welcome to One Quick Quest!</h1>
-                <div className="container">
+                <div className="containerStart">
                     <img className="startImage" src="https://c4.wallpaperflare.com/wallpaper/489/137/187/landscape-castle-clouds-hills-wallpaper-preview.jpg" alt="start page" height="300px" width="500px" />
                     <div className="centered"><p>It is your best friend's birthday and you have been given the task of baking a cake for the party. But what's this? An evil wizard has scattered the ingredients you need across the world. Oh no! Do you go to the party empty handed or do you have the time for <b>Just One Quick Quest!</b></p> </div>
                 </div>

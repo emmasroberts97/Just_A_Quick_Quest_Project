@@ -48,30 +48,30 @@ class QMComponent extends Component {
 
             if(!this.props.result){
             return(
-            <div>
-                <h2>{this.props.selectedQuestionMaster.name}</h2>
+            <div className="width">
+                <h1>{this.props.selectedQuestionMaster.name}</h1>
                 <img className="qmImage" src={this.state.img} alt={this.props.selectedQuestionMaster.name} height="300px" width="300px"/>
-              <h2 className="qmHeading">{this.props.selectedQuestionMaster.catchphrase}</h2>
+              <h3 className="qmHeading text-wrap">"{this.props.selectedQuestionMaster.catchphrase}"</h3>
             </div>
         )}
         if(this.props.result === "right"){
             return(
-              <div>
-                  <h2>{this.props.selectedQuestionMaster.name}</h2>
+              <div className="width">
+                  <h1>{this.props.selectedQuestionMaster.name}</h1>
                   <img className="qmImage" src={this.state.img} alt={this.props.selectedQuestionMaster.name} height="300px" width="300px"/>
-                  <h2 className="qmHeading">
-                      {this.props.selectedQuestionMaster.rightAnswerResponse}
-                  </h2>
+                  <h3 className="qmHeading text-wrap">
+                      "{this.props.selectedQuestionMaster.rightAnswerResponse}"
+                  </h3>
               </div>
             )}
         if(this.props.result === "wrong"){
             return(
-                <div>
-                    <h2>{this.props.selectedQuestionMaster.name}</h2>
+                <div className="width">
+                    <h1>{this.props.selectedQuestionMaster.name}</h1>
                     <img className="qmImage" src={this.state.img} alt={this.props.selectedQuestionMaster.name} height="300px" width="300px"/>
-                    <h2 className="qmHeading">
-                        {this.props.selectedQuestionMaster.wrongAnswerResponse}
-                    </h2>
+                    <h3 className="qmHeading text-wrap">
+                        "{this.props.selectedQuestionMaster.wrongAnswerResponse}"
+                    </h3>
                 </div>
             )}
 
