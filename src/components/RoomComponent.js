@@ -58,6 +58,7 @@ class RoomComponent extends Component {
 
 
     render(){
+
         if(this.props.result === "" && this.props.hasEnteredRoom === false){
             return(
                 <div>
@@ -72,16 +73,57 @@ class RoomComponent extends Component {
             return(
                 <div>
                     <h2 className="compassText">Choose your exit</h2>
-                    {/*<button onClick={this.handleClick}>North</button>*/}
-                    {/*<button onClick={this.handleClick}>South</button>*/}
-                    {/*<button onClick={this.handleClick}>East</button>*/}
-                    {/*<button onClick={this.handleClick}>West</button>*/}
                     <button onClick={this.handleClick} className="compass"><img src={process.env.PUBLIC_URL +"/images/rooms/compass.png"} height="300px" width="300px" alt="compass" /></button>
                 </div>
             )
         }
         if(this.props.hasEnteredRoom === true){
-            return null;
+            if(this.props.lives === 5){
+                return(
+                    <div>
+                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                      <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                    </div>
+                )
+            }
+            if(this.props.lives === 4){
+                return(
+                    <div>
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                    </div>
+                )
+            }
+            if(this.props.lives === 3){
+                return(
+                    <div>
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                    </div>
+                )
+            }
+            if(this.props.lives === 2){
+                return(
+                    <div>
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                    </div>
+                )
+            }
+            if(this.props.lives === 1){
+                return(
+                    <div>
+                        <img src={process.env.PUBLIC_URL +"/images/character/heart.png"} alt="lives" />
+                    </div>
+                )
+            }
+
         }
     }
 }
