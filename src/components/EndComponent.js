@@ -17,7 +17,7 @@ class EndComponent extends Component {
         // const characterNames = this.props.characters.map((character) => {
             const highscores = [];
         this.props.characters.forEach((character) => {
-            const score = Math.round((1000000-(character.endTime - character.startTime))*(character.life/2));
+            const score = Math.round((1000000-(character.endTime - character.startTime))*(0.2+(character.life/2)));
             const savedCharacter={
                 "name": character.name,
                 "highscore": score
