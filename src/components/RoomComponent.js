@@ -76,7 +76,7 @@ class RoomComponent extends Component {
                     {/*<button onClick={this.handleClick}>South</button>*/}
                     {/*<button onClick={this.handleClick}>East</button>*/}
                     {/*<button onClick={this.handleClick}>West</button>*/}
-                    <button onClick={this.handleClick} className="compass"><img src={process.env.PUBLIC_URL +"/images/rooms/compass.png"} height="300px" width="300px"  /></button>
+                    <button onClick={this.handleClick} className="compass"><img src={process.env.PUBLIC_URL +"/images/rooms/compass.png"} height="300px" width="300px" alt="compass" /></button>
                 </div>
             )
         }
