@@ -4,9 +4,18 @@ class QMComponent extends Component {
     constructor(props){
         super(props);
         this.state = {
-
-
+            img: ""
         };
+    }
+
+    getImage(){
+        if(this.props.selectedQuestionMaster.img === "rubyRabbit"){
+            this.setState({img: process.env.PUBLIC_URL +"/images/quizmaster/rubyRabbit.png"})
+        }
+        if(this.props.selectedQuestionMaster.img === "rubyRabbit"){
+            this.setState({img: process.env.PUBLIC_URL +"/images/quizmaster/castle.jpg"})
+        }
+
     }
     render(){
 
