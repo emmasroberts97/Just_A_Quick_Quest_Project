@@ -41,8 +41,8 @@ public class DataLoader implements ApplicationRunner {
         questionMasterRespository.save(howardThomasMartinLuthor);
         QuestionMaster nial = new QuestionMaster("Nial","Greetings Traveller","nial","Yous are all doing so well","Oh crumbs!");
         questionMasterRespository.save(nial);
-        QuestionMaster john = new QuestionMaster("John C++ Reilly","Danger was my middle name, now it's C++","john","that one ran with zero errors!","failed to compile!");
-        questionMasterRespository.save(john);
+        QuestionMaster craig = new QuestionMaster("Craig++","Just one more was my middle name, now it's ++","craig","that one ran with zero errors!","failed to compile!");
+        questionMasterRespository.save(craig);
         QuestionMaster sqlSquirrel = new QuestionMaster("SQL Squirrel","I store nuts in a relational database!","sqlSquirrel","You sure got that request!","aww nuts!");
         questionMasterRespository.save(sqlSquirrel);
         QuestionMaster machineCodeMouse = new QuestionMaster("Machine Code Mouse","01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100 00100001","machineCodeMouse","01100011 01101111 01110010 01110010 01100101 01100011 01110100 00100001","01110111 01110010 01101111 01101110 01100111 00100001");
