@@ -14,10 +14,24 @@ class EndComponent extends Component {
 
     render() {
 
+        let difficulty = 0
+        if (this.props.selectedDifficulty === ""){
+            difficulty =4
+        }
+        if (this.props.selectedDifficulty === "easy" ){
+            difficulty = 1
+        }
+        if (this.props.selectedDifficulty === "medium" ){
+            difficulty = 2
+        }
+        if (this.props.selectedDifficulty === "hard" ){
+            difficulty = 3
+        }
+
         // const characterNames = this.props.characters.map((character) => {
             const highscores = [];
         this.props.characters.forEach((character) => {
-            const score = Math.round((1000000-(character.endTime - character.startTime))*(0.2+(character.life/2)));
+            const score = Math.round((1000000-(character.endTime - character.startTime))*(0.2+(character.life/2))* difficulty);
             const savedCharacter={
                 "name": character.name,
                 "highscore": score

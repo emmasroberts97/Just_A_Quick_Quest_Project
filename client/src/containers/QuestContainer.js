@@ -240,31 +240,53 @@ class QuestContainer extends Component{
         if(this.state.hasStarted === false && this.state.hasFinished === false){
             return (
                 <div className="startScreen">
-                    <StartComponent startGame={this.startGame} setDifficulty={this.setDifficulty} setCharacter={this.setCharacter}/>
+                    <StartComponent
+                        startGame={this.startGame}
+                        setDifficulty={this.setDifficulty}
+                        setCharacter={this.setCharacter}/>
                 </div>
             )
         }
         if(this.state.hasFinished === true){
             return (
                 <div className="endScreen">
-                    <EndComponent characters={this.state.savedCharacters} selectedCharacter={this.state.character} score={this.state.collectedItems}/>
+                    <EndComponent characters={this.state.savedCharacters}
+                                  selectedCharacter={this.state.character}
+                                  score={this.state.collectedItems}
+                                  selectedDifficulty={this.state.selectedDifficulty}/>
                 </div>
             )
         }
 
         if(this.state.hasEnteredRoom === false){
             return(
-                <RoomComponent selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom} lives={this.state.character.life} collectedItems={this.state.collectedItems}/>
+                <RoomComponent selectedRoom={this.state.selectedRoom}
+                               result={this.state.result}
+                               nextRoom={this.nextRoom}
+                               enterRoom={this.enterRoom}
+                               hasEnteredRoom={this.state.hasEnteredRoom}
+                               lives={this.state.character.life}
+                               collectedItems={this.state.collectedItems}/>
             )
         }
 
         if(this.state.hasEnteredRoom === true){
             return(
                 <div className="container">
-                    <QMComponent className="col-4" selectedQuestionMaster={this.state.selectedQuestionMaster} result={this.state.result}/>
-                    <QuestionComponent className="col" question={this.state.question} getResult={this.logResult} result={this.state.result}/>
+                    <QMComponent className="col-4"
+                                 selectedQuestionMaster={this.state.selectedQuestionMaster}
+                                 result={this.state.result}/>
+                    <QuestionComponent className="col"
+                                       question={this.state.question}
+                                       getResult={this.logResult}
+                                       result={this.state.result}/>
                     {/*<TreasureComponent treasure={this.state.selectedTreasure}/>*/}
-                    <RoomComponent className="col" selectedRoom={this.state.selectedRoom} result={this.state.result} nextRoom={this.nextRoom} enterRoom={this.enterRoom} hasEnteredRoom={this.state.hasEnteredRoom} lives={this.state.character.life} collectedItems={this.state.collectedItems}/>
+                    <RoomComponent className="col" selectedRoom={this.state.selectedRoom}
+                                   result={this.state.result} nextRoom={this.nextRoom}
+                                   enterRoom={this.enterRoom}
+                                   hasEnteredRoom={this.state.hasEnteredRoom}
+                                   lives={this.state.character.life}
+                                   collectedItems={this.state.collectedItems}/>
                 </div>
             )
         }
