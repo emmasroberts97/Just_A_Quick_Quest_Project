@@ -27,6 +27,11 @@ public class DataLoader implements ApplicationRunner {
     public DataLoader(){}
 
     public void run(ApplicationArguments args){
+
+        questionMasterRespository.deleteAll();
+        roomRepository.deleteAll();
+        treasureRepository.deleteAll();
+
         QuestionMaster rubyRabbit = new QuestionMaster("Ruby Rabbit","Ruby me this!","rubyRabbit","that was ruby right!","that was ruby wrong");
         questionMasterRespository.save(rubyRabbit);
         QuestionMaster peterPython = new QuestionMaster("Peter Python", "Nicccccee to ssssssssee you", "peterPython", "thatsssssss the bessssssst anssssswer","you are wrong, I bite you now");
