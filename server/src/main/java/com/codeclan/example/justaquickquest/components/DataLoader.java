@@ -36,7 +36,7 @@ public class DataLoader implements ApplicationRunner {
         questionMasterRespository.save(rubyRabbit);
         QuestionMaster peterPython = new QuestionMaster("Peter Python", "Nicccccee to ssssssssee you", "peterPython", "thatsssssss the bessssssst anssssswer","you are wrong, I bite you now");
         questionMasterRespository.save(peterPython);
-        QuestionMaster cSharpSteve = new QuestionMaster("C Sharp Steve", "C is my father's name, you can call me Steve","cSharpSteve","That was C for correct!", "I'm afraid we don't C eye to eye on this one, you lose!");
+        QuestionMaster cSharpSteve = new QuestionMaster("C Sharp Steve", "The C-sharpest tool in the box!","cSharpSteve","That was C for correct!", "I'm afraid we don't C eye to eye on this one, you lose!");
         questionMasterRespository.save(cSharpSteve);
         QuestionMaster javaTheHut = new QuestionMaster("Java The Hut", "Definitely not infringing copyright","javaTheHut","I'll have a slice of that! Correct!", "That answer was worse than a reheated slice for breakfast, you fail!");
         questionMasterRespository.save(javaTheHut);
@@ -46,7 +46,7 @@ public class DataLoader implements ApplicationRunner {
         questionMasterRespository.save(html);
         QuestionMaster nial = new QuestionMaster("Nial","Greetings Traveller","nial","Yous are all doing so well","Oh crumbs!");
         questionMasterRespository.save(nial);
-        QuestionMaster craig = new QuestionMaster("Craig++","Just one more was my middle name, now it's ++","craig","that one ran with zero errors!","failed to compile!");
+        QuestionMaster craig = new QuestionMaster("Craig++","10 Things I Hate About You is my favourite film","craig","that one ran with zero errors!","failed to compile!");
         questionMasterRespository.save(craig);
         QuestionMaster sqlSquirrel = new QuestionMaster("SQL Squirrel","I store nuts in a relational database!","sqlSquirrel","You sure got that request!","aww nuts!");
         questionMasterRespository.save(sqlSquirrel);
